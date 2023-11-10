@@ -1,0 +1,155 @@
+// EXEMPLO 1
+int num[5];
+float media = 0;
+num[0]= 7;
+num[1]= 7;
+num[2]= 7;
+num[3]= 7;
+num[4]= 7;
+media = (num[0] + num[1] + num[2] + num[3] + num[4]) / 5;
+printf("Media: %.2f\n", media);
+
+// EXEMPLO 2
+// indice 0 1 2 3 4
+int num2[5] = {7, 7, 7, 7, 7};
+int i;
+float media2 = 0;
+for ( i = 0; i < 5; i++)
+{
+media2 += num2[i];
+}
+printf("Media2: %.2f\n", media2 / 5);
+
+//EXEMPLO 3
+int num[5];
+int i;
+for ( i = 0; i < 5; i++)
+{
+printf("Digite nota %d \n", i + 1);
+scanf("%d", &num[i]);
+}
+printf("Notas digitadas\n");
+for ( i = 0; i < 5; i++)
+{
+printf("Posição no array [%d] - Notas: %d \n",i, num[i]);
+}
+
+//EXEMPLO 4
+int num[6];
+int i;
+float media = 0;
+float somaPar = 0;
+float somaImpar = 0;
+for ( i = 0; i < 6; i++)
+{
+printf("Digite nota %d \n", i + 1);
+scanf("%d", &num[i]);
+media += num[i];
+}
+for (i = 1; i <= media; i++)
+{
+if (i % 2 == 0)
+{
+somaPar += i;
+}else {
+somaImpar += i;
+}
+}
+printf("Numeros pares\n");
+for ( i = 0; i < 6; i++)
+{
+if (num[i]% 2 == 0)
+{
+printf("indice [%d] - valor par %d \n",i, num[i]);
+}
+}
+printf("Numeros impares\n");
+for ( i = 0; i < 6; i++)
+{
+if (num[i]% 2 != 0)
+{
+printf("indice [%d] - valor impar %d \n",i, num[i]);
+}
+}
+printf("Media final: %.2f\n", media / 6);
+printf("Soma par: %.f\n", somaPar);
+printf("Soma impar: %.f\n", somaImpar);
+
+EXEMPLOS STRING
+
+//EXEMPLO 1
+char s[10];
+printf("Digite qualquer coisa (utilizando o scanf
+convencional):\n");
+scanf("%s", s);
+fflush(stdin);
+clearScreen();
+printf("Não aprimorado - Foi digitado: %s\n", s);
+printf("Digite qualquer coisa (scanf aprimorado):\n");
+scanf("%9[^\n]s", s);
+fflush(stdin);
+printf("Aprimorado - Foi digitado: %s\n", s);
+
+//EXEMPLO 2
+char s[N];
+printf("Digite qualquer coisa (utilizando gets):\n");
+gets(s);
+fflush(stdin);
+clearScreen();
+puts("Resultado: gets");
+puts(s);
+puts("--------------------------------");
+printf("Digite qualquer coisa (utilizando fgets):\n");
+fgets(s, N, stdin);
+fflush(stdin);
+puts("Resultado: fgets");
+puts(s);
+
+//EXEMPLO 3
+char origem[N] = {"Olá mundo"};
+char destino[N];
+printf("Antes do strcpy\n");
+puts(origem);
+puts(destino);
+strcpy(destino, origem);
+printf("Depois do strcpy\n");
+puts(destino);
+puts(origem);
+
+//EXEMPLO 4
+char s1[N] = {"Algoritmo e"};
+char s2[N] = {" Programação estruturada"};
+printf("Antes do strcat\n");
+printf("S1: %s\n", s1); // Algoritmo e
+printf("S2: %s\n\n", s2);// Programação estruturada
+strcat(s1, s2);
+printf("Depois do strcat\n");
+puts(s1);
+//EXEMPLO 5
+char s[N];
+int i;
+printf("Digite um texto\n");
+fgets(s, N, stdin);
+clearScreen();
+s[strcspn(s, "\n")] = '\0';
+i = strlen(s);
+printf("\nTamanho do texto digitado: %d\n", i);
+printf("Impressão de posição em posição\n");
+for ( i = 0; i < strlen(s); i++)
+{
+printf("%d - %c \n",i, s[i]);
+}
+
+//EXEMPLO 5
+char staticText[N] = {"/exit"};
+char senha_usr[N];
+int ok;
+printf("Digite uma frase\n");
+fgets(senha_usr, sizeof(senha_usr), stdin);
+clearScreen();
+senha_usr[strcspn(senha_usr, "\n")] = '\0';
+ok = strcmp(staticText, senha_usr);
+if(ok == 0) {
+printf("Frase identica\n");
+}else {
+printf("Frase não confere\n");
