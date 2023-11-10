@@ -1,0 +1,154 @@
+1 - Crie um programa que pede ao usuário para inserir dois números e depois realiza operações matemáticas simples (adição, subtração, multiplicação e divisão) com esses números, exibindo o resultado na tela. Após testar o código inclua-o abaixo.
+
+#include <stdio.h>
+
+int main() {
+    
+    int N1, N2;
+    
+    printf("Digite o primeiro valor:\n");
+    scanf("%d", &N1);
+    
+    printf("Digite o segundo valor:\n");
+    scanf("%d", &N2);
+    
+    printf("Soma:%d\n", N1+N2);
+    printf("Subtração:%d\n", N1-N2);
+    printf("Multiplicação:%d\n", N1*N2);
+    printf("Divisão:%d\n", N1/N2);
+}
+
+2 - Crie um programa que converte a temperatura de graus Celsius para graus Fahrenheit. Peça ao usuário para inserir a temperatura em Celsius e, em seguida, exiba a temperatura equivalente em Fahrenheit. Após testar o código inclua-o abaixo.
+
+#include <stdio.h>
+
+int main() {
+	
+	int TC;
+	double TF;
+	
+	printf("Digite a temperatura em Celsius:\n");
+	scanf("%d", &TC);
+	
+	TF = (TC * 1.8) + 32;
+	
+	printf("Temperatura em Farenheit: %.2lf\n", TF);
+	
+}
+
+3 - Crie um programa que solicite ao usuário para inserir três notas e, em seguida, calcule e exiba a média dessas notas. Após testar o código inclua-o abaixo.
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	
+	double n1, n2, n3, m;
+	
+	printf("Digite a nota 1:\n");
+	scanf("%lf", &n1);
+	 
+	printf("Digite a nota 1:\n");
+	scanf("%lf", &n2);
+	 
+	printf("Digite a nota 1:\n");
+	scanf("%lf", &n3);
+	
+	m = (n1+n2+n3)/3;
+	
+	printf("Média: %.2lf", m);
+	 
+}
+
+4 - Crie um programa que calcule os juros simples com base no capital, taxa de juros e tempo fornecidos pelo usuário. Peça ao usuário para inserir o capital, a taxa de juros (em porcentagem) e o tempo (em anos) e exiba o valor dos juros. Após testar o código inclua-o abaixo.
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	
+	double i, t, c, s;
+	
+	printf("Digite a taxa de juros:\n");
+	scanf("%lf", &i);
+	 
+	printf("Tempo:\n");
+	scanf("%lf", &t);
+	 
+	printf("Valor do capital:\n");
+	scanf("%lf", &c);
+	
+	s = c * i * t;
+	
+	printf("Juros Simples: %.2lf", s);
+	 
+}
+
+5 - Crie um programa que converta um valor em dólares para outra moeda (por exemplo, euros). Peça ao usuário para inserir o valor em dólares e a taxa de conversão e exiba o valor convertido. Após testar o código inclua-o abaixo.
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	
+	double d, t, e;
+	
+	printf("Digite o valor em dólares:\n");
+	scanf("%lf", &d);
+	 
+	printf("Digite a taxa de conversão:\n");
+	scanf("%lf", &t);
+	 
+	e = d*t;
+	
+	printf("Valor em euro: %.2lf", e);
+	 
+}
+
+6 - Crie um programa que peça ao usuário para inserir três notas e seus respectivos pesos, e depois calcule e exiba a média ponderada dessas notas. Após testar o código inclua-o abaixo.
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	
+	double n1, n2, n3, p1, p2, p3, m;
+	
+	printf("Digite nota 1 e peso 1:\n");
+	scanf("%lf" "%lf", &n1, &p1);
+	
+	printf("Digite nota 1 e peso 1:\n");
+	scanf("%lf" "%lf", &n2, &p2);
+	
+	printf("Digite nota 1 e peso 1:\n");
+	scanf("%lf" "%lf", &n3, &p3);
+	 
+	 
+	m = ((n1*p1) + (n2*p2) + (n3*p3))/(p1+p2+p3);
+	
+	printf("Média Ponderada: %.2lf", m);
+	 
+}
+
+7 - Crie um programa que converta uma medida em polegadas para centímetros. Peça ao usuário para inserir a medida em polegadas e exiba o valor equivalente em centímetros. Considere que 1 polegada é igual a 2,54 centímetros. Após testar o código inclua-o abaixo.
+
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	
+	double p, cm;
+	
+	printf("Digite quantas polegadas:\n");
+	scanf("%lf", &p);
+	 
+	cm = p/2.54;
+	
+	printf("Medida em centimetros: %.2lf", cm);
+	
+}
