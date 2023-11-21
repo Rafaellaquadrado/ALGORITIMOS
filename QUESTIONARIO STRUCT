@@ -1,23 +1,134 @@
 **Exercício 1:**
-Crie uma `struct` chamada `Livro` que armazene as seguintes
-informações sobre um livro: título, autor e ano de publicação.
-Em seguida, escreva um programa que cria uma instância dessa
-`struct` e imprime as informações do livro.
+Crie uma `struct` chamada `Livro` que armazene as seguintes informações
+sobre um livro: título, autor, ano de publicação e avaliação. Em
+seguida, escreva um programa que cria uma instância dessa `struct` e
+imprime as informações do livro.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct livro {
+	char titulo [100];
+	char autor [100];
+	int anopublicacao;
+	float avaliacao [5]; // somar as notas, calcular a media e depois dividir por 2.9//
+	
+};
+
+int main (){
+	int i = 0;
+	int num_de_livros = 3;
+	struct livro livros [3];
+	
+	for (i = 0; i < 3; i++){
+		printf ("Informacoes do livro %d\n", i + 1);
+		
+		printf("Titulo:\n");
+		scanf("%s", livros[i].titulo);
+		
+		printf("Autor:\n");
+		scanf("%s", livros[i].autor);
+		
+		printf("Ano de publicacao:\n");
+		scanf("%d", livros[i].anopublicacao);
+		
+		printf("Avaliacao:\n");
+		scanf("%f", livros[i].avaliacao);
+
+	}
+	
+	printf("Informacoes dos livros:\n");
+	
+	for(i = 0; i < 3; i++){
+		printf("Livro %d\n", i + 1);
+		printf("Titulo: %s\n", livros[i].titulo);
+		printf("Autor: %s\n", livros[i].autor);
+		printf("Ano de publicacao: % c\n", livros[i].anopublicacao);
+		printf("Avaliacao: %s\n", livros[i].avaliacao);
+	}
+}
 
 **Exercício 2:**
-Crie uma `struct` chamada `Retângulo` que represente um
-retângulo com membros para largura e altura. escreva um
-programa que cria uma instância dessa `struct` e imprime as
-informação: área do retângulo.
+Crie uma `struct` chamada `Retângulo` que represente um retângulo com
+membros para largura e altura. escreva um programa que cria uma
+instância dessa `struct` e imprime as informação: área do retângulo.
 
 **Exercício 3:**
-Crie uma `struct` chamada `Pessoa` para armazenar informações
-sobre uma pessoa, incluindo nome, idade e altura. escreva um
-programa que cria uma instância dessa `struct` e imprime as
-informações: média de idade e altura.
+Crie uma `struct` chamada `Pessoa` para armazenar informações sobre uma
+pessoa, incluindo nome, idade e altura. escreva um programa que cria
+uma instância dessa `struct` e imprime as informações: idade e altura.
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define N 3
+
+struct Pessoa {
+int idade;
+float altura;
+char nome[50];
+};
+typedef struct Pessoa Pessoa;
+void clearScreen() {
+system("clear");
+}
+int main(){
+
+Pessoa pessoas[N];
+int i;
+for (i = 0; i < N; i++)
+{
+printf("Insira os dados %d: \n", i + 1);
+puts("Nome: ");
+scanf("%50[^\n]s", pessoas[i].nome);
+fflush(stdin);
+puts("Idade: ");
+scanf("%d", &pessoas[i].idade);
+fflush(stdin);
+puts("Altura: ");
+scanf("%f", &pessoas[i].altura);
+fflush(stdin);
+}
+
+for ( i = 0; i < N; i++)
+{
+printf(">> Pessoa %d <<\n", i + 1);
+printf("Nome: %s: \n", pessoas[i].nome);
+printf("Idade: %d: \n", pessoas[i].idade);
+printf("Altura: %.2f: \n", pessoas[i].altura);
+}
+}
 
 **Exercício 4:**
-Crie uma `struct` chamada `Estudante` que represente um
-estudante com membros para nome, idade e uma array de notas.
-escreva um programa que cria uma instância dessa `struct` e
-imprime as informação: média das notas do estudante.
+Crie uma `struct` chamada `Estudante` que represente um estudante com
+membros para nome, idade e uma array de notas e media das notas.
+escreva um programa que cria uma instância dessa `struct` e imprime as
+informação: média das notas do estudante.
+
+**Exercício 5:** Armazenamento de Informações de um Estudante
+Desenvolva uma estrutura (struct) em C chamada Estudante que possua
+três campos: nome (uma string de até 50 caracteres), idade (um número
+inteiro) e media (um número em ponto flutuante representando a média do
+estudante). No programa principal (main), crie uma variável do tipo
+Estudante e preencha com informações fictícias de um estudante (por
+exemplo: nome="João", idade=20, média=7.5). Em seguida, exiba na tela
+os dados armazenados nessa estrutura.
+
+**Exercício 6:** Representação de um Funcionário de uma Empresa
+Crie uma estrutura (struct) em C chamada Funcionario que possua três
+campos: nome (uma string de até 50 caracteres), idade (um número
+inteiro) e salario (um número em ponto flutuante representando o
+salário do funcionário). No programa principal (main), declare uma
+variável do tipo Funcionario e preencha com informações de um
+funcionário (por exemplo: nome="Maria", idade=30, salario=2500.0). Em
+seguida, exiba na tela os dados desse funcionário.
+
+**Exercício 7:** Representação das Informações de um Carro
+Desenvolva uma estrutura (struct) em C chamada Carro com quatro campos:
+marca (uma string de até 50 caracteres), modelo (uma string de até 50
+caracteres), ano (um número inteiro representando o ano de fabricação
+do carro) e preco (um número em ponto flutuante referente ao preço do
+carro). No programa principal (main), declare uma variável do tipo
+Carro e inicialize-a com informações sobre um carro específico (por
+exemplo: marca="Toyota", modelo="Corolla", ano=2020, preco=30000.0).
+Por fim, exiba na tela os dados desse carro.
