@@ -108,6 +108,11 @@ membros para nome, idade e uma array de notas e media das notas.
 escreva um programa que cria uma instância dessa `struct` e imprime as
 informação: média das notas do estudante.
 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
 struct Estudante {
 char nome[50];
 int idade;
@@ -115,35 +120,40 @@ float notas[5];
 };
 
 int main() {
-
+int i = 0;
+int j = 0;
 struct Estudante estudantes[3];
-// Preenchimento dos dados dos estudantes
-for (int i = 0; i < 3; ++i) {
-printf("Digite o nome do Estudante %d: ", i + 1);
-scanf("%s", estudantes[i].nome);
-printf("Digite a idade do Estudante %d: ", i + 1);
-scanf("%d", &estudantes[i].idade);
-printf("Digite as %d notas do Estudante %d:\n", 3, i + 1);
-for (int j = 0; j < 3; ++j) {
-printf("Nota %d: ", j + 1);
-scanf("%f", &estudantes[i].notas[j]);
+
+for (i = 0; i < 3; ++i) {
+	printf("Digite o nome do Estudante %d: ", i + 1);
+	scanf("%s", estudantes[i].nome);
+	printf("Digite a idade do Estudante %d: ", i + 1);
+	scanf("%d", &estudantes[i].idade);
+	printf("Digite as %d notas do Estudante %d:\n", 3, i + 1);
+for (j = 0; j < 3; ++j) {
+	printf("Nota %d: ", j + 1);
+	scanf("%f", &estudantes[i].notas[j]);
 }
 printf("\n");
 }
-// Impressão das informações dos estudantes
-for (int i = 0; i < 3; ++i) {
-printf("Estudante %d - Nome: %s, Idade: %d\n", i + 1, estudantes[i].nome, estudantes[i].idade);
-float media = 0.0;
-printf("Notas:\n");
-for (int j = 0; j < 5; ++j) {
-printf("Nota %d: %.2f\n", j + 1,
-estudantes[i].notas[j]);
-media += estudantes[i].notas[j];
+
+for (i = 0; i < 3; ++i) {
+	printf("Estudante %d - Nome: %s, Idade: %d\n", i + 1, estudantes[i].nome, estudantes[i].idade);
+	float media = 0.0;
+	printf("Notas:\n");
+		for (j = 0; j < 3; ++j) {
+	printf("Nota %d: %.2f\n", j + 1,
+	estudantes[i].notas[j]);
+	media += estudantes[i].notas[j];
 }
 media /= 3;
 printf("Média das notas do Estudante %d: %.2f\n\n", i + 1, media);
 }
-return 0
+
+return 0;
+
+}
+
 
 **Exercício 5:** Armazenamento de Informações de um Estudante
 Desenvolva uma estrutura (struct) em C chamada Estudante que possua
