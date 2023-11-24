@@ -4,48 +4,51 @@ sobre um livro: título, autor, ano de publicação e avaliação. Em
 seguida, escreva um programa que cria uma instância dessa `struct` e
 imprime as informações do livro.
 
+
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
-
-struct livro {
-	char titulo [100];
-	char autor [100];
-	int anopublicacao;
-	float avaliacao [5]; // somar as notas, calcular a media e depois dividir por 2.9//
-	
+struct Livro {
+char titulo[100];
+char autor[100];
+int anoPublicacao;
+float reviews[5];
 };
-
-int main (){
-	int i = 0;
-	int num_de_livros = 3;
-	struct livro livros [3];
-	
-	for (i = 0; i < 3; i++){
-		printf ("Informacoes do livro %d\n", i + 1);
-		
-		printf("Titulo:\n");
-		scanf("%s", livros[i].titulo);
-		
-		printf("Autor:\n");
-		scanf("%s", livros[i].autor);
-		
-		printf("Ano de publicacao:\n");
-		scanf("%d", livros[i].anopublicacao);
-		
-		printf("Avaliacao:\n");
-		scanf("%f", livros[i].avaliacao);
-
-	}
-	
-	printf("Informacoes dos livros:\n");
-	
-	for(i = 0; i < 3; i++){
-		printf("Livro %d\n", i + 1);
-		printf("Titulo: %s\n", livros[i].titulo);
-		printf("Autor: %s\n", livros[i].autor);
-		printf("Ano de publicacao: % c\n", livros[i].anopublicacao);
-		printf("Avaliacao: %s\n", livros[i].avaliacao);
-	}
+int main() {
+struct Livro livros[3];
+// recebendo as informações dos livros
+for (int i = 0; i < 3; i++)
+{
+printf("Digite os dados para o livro %d\n", i + 1);
+puts("Titulo");
+scanf("%100[^\n]s", livros[i].titulo);
+fflush(stdin);
+puts("Autor");
+scanf("%100[^\n]s", livros[i].autor);
+fflush(stdin);
+puts("Ano publicação");
+scanf("%d", &livros[i].anoPublicacao);
+for (int j = 0; j < 5; j++)
+{
+printf("Digite as notas para o livro %d\n", i + 1);
+scanf("%f", &livros[i].reviews[j]);
+fflush(stdin);
+}
+}
+//Imprimindo as informões dos livros
+for (int i = 0; i < 3; i++)
+{
+printf("Titulo: %s\n Autor: %s\n ano: %d\n",
+livros[i].titulo, livros[i].autor,
+livros[i].anoPublicacao);
+double soma = 0.0;
+for (int j = 0; j < 5; j++)
+{
+soma += livros[i].reviews[j];
+}
+soma /= 5;
+printf("Review: %.2f/5 estrelas\n\n", soma /2);
+}
 }
 
 **Exercício 2:**
@@ -90,7 +93,7 @@ scanf("%f", &pessoas[i].altura);
 fflush(stdin);
 }
 
-for ( i = 0; i < N; i++)
+for (i = 0; i < N; i++)
 {
 printf(">> Pessoa %d <<\n", i + 1);
 printf("Nome: %s: \n", pessoas[i].nome);
@@ -104,6 +107,43 @@ Crie uma `struct` chamada `Estudante` que represente um estudante com
 membros para nome, idade e uma array de notas e media das notas.
 escreva um programa que cria uma instância dessa `struct` e imprime as
 informação: média das notas do estudante.
+
+struct Estudante {
+char nome[50];
+int idade;
+float notas[5];
+};
+
+int main() {
+
+struct Estudante estudantes[3];
+// Preenchimento dos dados dos estudantes
+for (int i = 0; i < 3; ++i) {
+printf("Digite o nome do Estudante %d: ", i + 1);
+scanf("%s", estudantes[i].nome);
+printf("Digite a idade do Estudante %d: ", i + 1);
+scanf("%d", &estudantes[i].idade);
+printf("Digite as %d notas do Estudante %d:\n", 3, i + 1);
+for (int j = 0; j < 3; ++j) {
+printf("Nota %d: ", j + 1);
+scanf("%f", &estudantes[i].notas[j]);
+}
+printf("\n");
+}
+// Impressão das informações dos estudantes
+for (int i = 0; i < 3; ++i) {
+printf("Estudante %d - Nome: %s, Idade: %d\n", i + 1, estudantes[i].nome, estudantes[i].idade);
+float media = 0.0;
+printf("Notas:\n");
+for (int j = 0; j < 5; ++j) {
+printf("Nota %d: %.2f\n", j + 1,
+estudantes[i].notas[j]);
+media += estudantes[i].notas[j];
+}
+media /= 3;
+printf("Média das notas do Estudante %d: %.2f\n\n", i + 1, media);
+}
+return 0
 
 **Exercício 5:** Armazenamento de Informações de um Estudante
 Desenvolva uma estrutura (struct) em C chamada Estudante que possua
